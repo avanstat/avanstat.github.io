@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Securely request statistical consulting services from Avan Stat. Compute package fees using our live biostatistics service calculator.">
+    <title>Avan Stat | Client Billing & Checkout Portal</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/payment.css">
+</head>
+<body>
+
+    <!-- ==========================================
+         NAVIGATION HEADER
+         ========================================== -->
+    <header class="navbar scrolled">
+        <div class="container">
+            <a href="index.html#home" class="logo">Avan<span class="gradient-text">Stat</span></a>
+            
+            <nav class="nav-menu">
+                <a href="index.html#home" class="nav-link">Home</a>
+                <a href="index.html#services" class="nav-link">Services</a>
+                <a href="index.html#about" class="nav-link">Why Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         CHECKOUT PORTAL CONTENT
+         ========================================== -->
+    <main class="checkout-wrapper" id="checkout-main">
+        <div class="container">
+            <div class="checkout-grid">
+                
+                <!-- Left Column: Service Selection & Price Calculator -->
+                <section class="calculator-section glass-card">
+                    <h2>1. Service Selection</h2>
+                    
+                    <form id="calculator-form">
+                        <!-- Selection List -->
+                        <div class="service-selection-list">
+                            <!-- Option 1: Study Design & Consultation -->
+                            <div class="service-option-card active" data-package="basic-consult" data-price="200">
+                                <div class="option-header">
+                                    <span class="option-title">Study Design & Consultation</span>
+                                    <span class="option-price">$200</span>
+                                </div>
+                                <p class="option-desc">Study design, sample size computation, and protocol/method review.</p>
+                                <button type="button" class="select-option-btn">Selected</button>
+                            </div>
+
+                            <!-- Option 2: Statistical Analysis & Visualizations -->
+                            <div class="service-option-card" data-package="analysis-viz" data-price="400">
+                                <div class="option-header">
+                                    <span class="option-title">Statistical Analysis & Visualizations</span>
+                                    <span class="option-price">$400</span>
+                                </div>
+                                <p class="option-desc">Standard analysis package including descriptive stats and publication-ready plots.</p>
+                                <button type="button" class="select-option-btn">Select</button>
+                            </div>
+
+                            <!-- Option 3: Advanced Modeling & Manuscript Drafting -->
+                            <div class="service-option-card" data-package="package" data-price="880">
+                                <div class="option-header">
+                                    <span class="option-title">Advanced Modeling & Manuscript Drafting</span>
+                                    <span class="option-price">$880</span>
+                                </div>
+                                <p class="option-desc">Advanced modeling, full manuscript drafting, and publication support.</p>
+                                <button type="button" class="select-option-btn">Select</button>
+                            </div>
+                            
+                            <!-- Option 4: Hourly Consulting -->
+                            <div class="service-option-card" data-package="consulting" data-price="50">
+                                <div class="option-header">
+                                    <span class="option-title">Hourly Scientific Consulting</span>
+                                    <span class="option-price">$50 / hr</span>
+                                </div>
+                                <p class="option-desc">Flexible hourly consulting for study design, method validation, or custom reviews.</p>
+                                <button type="button" class="select-option-btn">Select</button>
+                            </div>
+                        </div>
+
+                        <!-- Hour slider for last item, hidden by default -->
+                        <div class="form-group" id="hourly-scale-group" style="display: none; margin-top: 1.5rem;">
+                            <label for="hour-count">Estimated Project Hours: <span id="hours-value" class="gradient-text" style="font-weight: 700;">10</span> Hours</label>
+                            <div class="slider-container">
+                                <input type="range" id="hour-count" class="range-slider" min="1" max="60" step="1" value="10">
+                                <div class="slider-labels">
+                                    <span>1 Hour</span>
+                                    <span>60 Hours</span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    
+                    <!-- Dynamic Bill breakdown -->
+                    <div class="bill-summary">
+                        <div class="bill-line">
+                            <span>Selected Service:</span>
+                            <span id="bill-base-name">Study Design & Consultation</span>
+                        </div>
+                        <div class="bill-line">
+                            <span>Base Rate / Details:</span>
+                            <span id="bill-base">$200.00</span>
+                        </div>
+                        <div class="bill-total bill-line">
+                            <span>Total Estimated Investment:</span>
+                            <span id="bill-total-price">$200.00</span>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Right Column: Card Visualization & Payment details -->
+                <section class="payment-section glass-card">
+                    <h2>2. Payment Information</h2>
+                    
+                    <!-- 3D Credit Card Element -->
+                    <div class="card-container" id="credit-card-preview-container">
+                        <div class="credit-card" id="credit-card">
+                            
+                            <!-- Front Surface -->
+                            <div class="card-front">
+                                <div class="card-header">
+                                    <div class="card-chip"></div>
+                                    <!-- Contactless Symbol SVG -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; margin-right: 1.5rem;"><path d="M5 8c0 4.42 3.58 8 8 8M3 5c0 6.63 5.37 12 12 12M7 11c0 2.21 1.79 4 4 4M1 2c0 8.84 7.16 16 16 16"/></svg>
+                                    <div class="card-logo" id="card-brand-logo">VISA</div>
+                                </div>
+                                <div class="card-number" id="card-num-display">•••• •••• •••• ••••</div>
+                                <div class="card-footer">
+                                    <div>
+                                        <div class="card-label">Card Holder</div>
+                                        <div class="card-holder" id="card-holder-display">Cardholder Name</div>
+                                    </div>
+                                    <div style="text-align: right;">
+                                        <div class="card-label">Expires</div>
+                                        <div class="card-expiry" id="card-expiry-display">MM/YY</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Back Surface -->
+                            <div class="card-back">
+                                <div class="magnetic-stripe"></div>
+                                <div class="signature-area">
+                                    <div class="sig-label">Authorized Signature</div>
+                                    <div class="signature-strip">
+                                        <div class="cvv-display" id="card-cvv-display">***</div>
+                                    </div>
+                                </div>
+                                <p class="card-back-disclaimer">This simulated card representation is used for interactive presentation purposes in the Avan Stat web platform mock checkout.</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    <!-- Billing Details Form -->
+                    <form id="payment-form">
+                        <div class="form-group">
+                            <label for="client-name">Researcher / Institution Name</label>
+                            <input type="text" id="client-name" class="text-input" placeholder="e.g. Dr. Catherine Vance" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="client-email">Billing Email Address</label>
+                            <input type="email" id="client-email" class="text-input" placeholder="e.g. c.vance@stjude.org" required>
+                        </div>
+
+                        <!-- Stripe Method Selector -->
+                        <div class="form-group">
+                            <label>Payment Method (Powered by Stripe)</label>
+                            <div class="checkout-method-selector" style="display: flex; gap: 1rem; margin-top: 8px;">
+                                <div class="method-option active" id="method-embedded-btn" style="flex: 1; display: flex; flex-direction: column; align-items: center; padding: 0.85rem; border: 1.5px solid var(--accent-primary); border-radius: 12px; cursor: pointer; transition: all 0.3s; background: rgba(79, 70, 229, 0.04);">
+                                    <input type="radio" name="checkout-method" id="radio-embedded" value="embedded" checked style="display: none;">
+                                    <span style="font-weight: 700; font-size: 0.9rem; color: var(--text-primary);">Stripe Elements</span>
+                                    <span style="font-size: 0.72rem; color: var(--text-muted); margin-top: 4px; text-align: center;">Seamless checkout on site</span>
+                                </div>
+                                <div class="method-option" id="method-hosted-btn" style="flex: 1; display: flex; flex-direction: column; align-items: center; padding: 0.85rem; border: 1.5px solid var(--card-border); border-radius: 12px; cursor: pointer; transition: all 0.3s; background: transparent;">
+                                    <input type="radio" name="checkout-method" id="radio-hosted" value="hosted" style="display: none;">
+                                    <span style="font-weight: 700; font-size: 0.9rem; color: var(--text-primary);">Stripe Hosted</span>
+                                    <span style="font-size: 0.72rem; color: var(--text-muted); margin-top: 4px; text-align: center;">Secure hosted page</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Embedded Credit Card Inputs (hidden when Hosted Checkout is selected) -->
+                        <div id="embedded-cc-fields">
+                            <div class="form-group">
+                                <label for="card-num-input">Credit Card Number</label>
+                                <input type="text" id="card-num-input" class="text-input" placeholder="4111 2222 3333 4444" maxlength="19" required>
+                            </div>
+                            
+                            <div class="billing-form-grid">
+                                <div class="form-group">
+                                    <label for="card-expiry-input">Expiration Date</label>
+                                    <input type="text" id="card-expiry-input" class="text-input" placeholder="MM/YY" maxlength="5" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="card-cvv-input">CVV Code</label>
+                                    <input type="password" id="card-cvv-input" class="text-input" placeholder="123" maxlength="4" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Stripe Hosted Checkout Info (shown when Hosted Checkout is selected) -->
+                        <div id="hosted-checkout-info" style="display: none; padding: 1.25rem; background: rgba(79, 70, 229, 0.03); border: 1px dashed var(--accent-primary); border-radius: 12px; margin-bottom: 1.5rem; text-align: center;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 8px; display: inline-block;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            <p style="font-size: 0.88rem; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Redirect to Stripe Hosted Portal</p>
+                            <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.4;">When clicking below, you'll be redirected to a secure payment page hosted on stripe.com to finalize your purchase. Supports Google Pay, Apple Pay, and standard credit/debit.</p>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%; border-radius: 8px; margin-top: 1rem;" id="submit-payment-btn">
+                            <!-- SVG Lock icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; display: inline-block; vertical-align: middle;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            <span id="btn-submit-text">Confirm and Securely Pay</span> <span id="btn-price-display" style="margin-left: 5px; font-weight: 800;">$599.00</span>
+                        </button>
+
+                        <!-- Stripe Trust Badge -->
+                        <div class="stripe-badge-container" style="display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 12px; font-size: 0.8rem; color: var(--text-muted);">
+                            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block;"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>100% Encrypted Transactions via <strong>Stripe</strong></span>
+                        </div>
+                    </form>
+                </section>
+                
+            </div>
+        </div>
+    </main>
+
+    <!-- ==========================================
+         SIMULATED SECURE PAYMENT PROCESSING MODAL
+         ========================================== -->
+    <div class="modal-overlay" id="processing-modal">
+        <div class="modal-content">
+            <div class="spinner-container" id="spinner-container">
+                <div class="spinner"></div>
+                <!-- SVG Checkmark -->
+                <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            
+            <h3 id="modal-heading" style="font-size: 1.5rem; margin-bottom: 0.5rem;">Securing Transaction</h3>
+            <p id="modal-subtext" style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 2rem;">Connecting with payment gateway...</p>
+            
+            <div class="processing-status-list">
+                <div class="status-step active" id="step-1">
+                    <div class="status-dot"></div>
+                    <span>Verifying credit credentials...</span>
+                </div>
+                <div class="status-step" id="step-2">
+                    <div class="status-dot"></div>
+                    <span>Setting up SSL tunnels...</span>
+                </div>
+                <div class="status-step" id="step-3">
+                    <div class="status-dot"></div>
+                    <span>Authorizing transaction...</span>
+                </div>
+                <div class="status-step" id="step-4">
+                    <div class="status-dot"></div>
+                    <span>Generating scientific invoice...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         SUCCESSFUL RECEIPT & INVOICE SECTION (Hidden by default)
+         ========================================== -->
+    <section class="checkout-wrapper" id="success-section" style="display: none;">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 2.5rem;">
+                <span class="section-tag" style="color: var(--accent-success);">Payment Accepted</span>
+                <h2 class="section-title">Thank You For Your Booking!</h2>
+                <p class="section-subtitle">Your transaction has processed successfully. Below is your official project invoice.</p>
+            </div>
+            
+            <!-- printable invoice container -->
+            <div class="invoice-box" id="invoice-section">
+                <div class="invoice-header">
+                    <div class="invoice-brand">
+                        <h2>Avan Stat</h2>
+                        <p style="margin: 3px 0 0 0; font-size: 0.85rem; color: #64748b;">Biomedical Statistics Practice</p>
+                    </div>
+                    <div class="invoice-meta">
+                        <h3>INVOICE</h3>
+                        <p style="margin: 0; color: #475569;">Invoice #: <span id="inv-number" style="font-weight: 700;">AV-2026-8947</span></p>
+                        <p style="margin: 3px 0 0 0; color: #475569;">Date: <span id="inv-date">July 17, 2026</span></p>
+                    </div>
+                </div>
+                
+                <div class="invoice-details">
+                    <div>
+                        <h4 style="font-weight: 700; text-transform: uppercase;">Issued By</h4>
+                        <p style="font-weight: 600; color: #0f172a;">Avan Stat Consulting</p>
+                        <p>Cambridge Science Park</p>
+                        <p>Milton Road, CB4 0GD</p>
+                        <p>United Kingdom</p>
+                        <p style="margin-top: 5px;"><a href="mailto:avan.stat@gmx.co.uk" style="color: #64748b; text-decoration: none; transition: color 0.3s ease;">avan.stat@gmx.co.uk</a></p>
+                    </div>
+                    <div>
+                        <h4 style="font-weight: 700; text-transform: uppercase;">Billed To</h4>
+                        <p style="font-weight: 600; color: #0f172a;" id="inv-client-name">Dr. Catherine Vance</p>
+                        <p id="inv-client-email">c.vance@stjude.org</p>
+                        <p style="margin-top: 15px; color: #475569;">Payment Status: <span style="color: #10b981; font-weight: 700;">PAID IN FULL</span></p>
+                    </div>
+                </div>
+                
+                <table class="invoice-table">
+                    <thead>
+                        <tr>
+                            <th>Item Description</th>
+                            <th style="text-align: right;">Cost Details</th>
+                        </tr>
+                    </thead>
+                    <tbody id="invoice-items">
+                        <!-- Filled dynamically by JS -->
+                    </tbody>
+                </table>
+                
+                <div class="invoice-footer">
+                    <p>This invoice serves as confirmation that funds have been processed successfully.</p>
+                    <p style="margin-top: 4px;">Thank you for your collaboration. Avan Stat will initiate the dataset processing cycle shortly.</p>
+                </div>
+            </div>
+            
+            <div class="receipt-actions">
+                <button class="btn btn-primary" id="print-invoice-btn">
+                    <!-- SVG Print -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                    Print or Save as PDF
+                </button>
+                <a href="index.html#home" class="btn btn-secondary">Return to Home Page</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment JS Logic -->
+    <script src="assets/js/payment.js"></script>
+</body>
+</html>

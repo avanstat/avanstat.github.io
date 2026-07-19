@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 550 150" width="100%" height="100%">
+    <!-- Clean, minimalist statistics visual icon (left side) -->
+    <g fill="none" stroke="#4F46E5" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 3 clean solid bars -->
+        <rect x="50" y="85" width="14" height="35" rx="3" fill="#4F46E5" stroke="none" />
+        <rect x="75" y="65" width="14" height="55" rx="3" fill="#4F46E5" stroke="none" />
+        <rect x="100" y="45" width="14" height="75" rx="3" fill="#4F46E5" stroke="none" />
+        
+        <!-- Clean, sharp trend line swooping up-right -->
+        <path d="M 40,95 Q 85,85 130,35" stroke="#0D9488" stroke-width="5" />
+        <polygon points="130,35 118,37 124,49" fill="#0D9488" stroke="none" />
+    </g>
+    
+    <!-- Clean separator line -->
+    <line x1="160" y1="25" x2="160" y2="125" stroke="#E2E8F0" stroke-width="2" />
+    
+    <!-- Clean brand typography (right side) -->
+    <g font-family="'Outfit', 'Inter', sans-serif">
+        <!-- Brand name in dark slate, solid, bold -->
+        <text x="185" y="78" font-size="46" font-weight="800" fill="#1E293B" letter-spacing="-0.5">Avan Stat</text>
+        <!-- Subtitle in medium slate, uppercase, spaced out -->
+        <text x="187" y="112" font-size="12" font-weight="700" letter-spacing="5" fill="#475569">STATISTICS • DATA SCIENCE</text>
+    </g>
+</svg>
