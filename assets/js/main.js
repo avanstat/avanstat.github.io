@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         statCounts.forEach(stat => {
             const target = parseInt(stat.getAttribute('data-target'), 10);
             const duration = 1500; // 1.5 seconds animation
+            const hasPlus = (target === 100 || target === 10);
             const startTimestamp = performance.now();
             
             const step = (timestamp) => {
@@ -64,12 +65,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 const easeProgress = 1 - Math.pow(1 - progress, 3);
                 const currentValue = Math.floor(easeProgress * target);
                 
-                stat.textContent = currentValue + (stat.textContent.includes('+') || target >= 100 && target !== 99 ? '+' : '');
+                stat.textContent = currentValue + (hasPlus ? '+' : '');
                 
                 if (progress < 1) {
                     window.requestAnimationFrame(step);
                 } else {
-                    stat.textContent = target + (target === 250 || target === 15 || target === 45 ? '+' : '');
+                    stat.textContent = target + (hasPlus ? '+' : '');
                 }
             };
             

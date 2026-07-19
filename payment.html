@@ -61,13 +61,13 @@
                                 <button type="button" class="select-option-btn">Select</button>
                             </div>
 
-                            <!-- Option 3: Advanced Modeling & Manuscript Drafting -->
+                            <!-- Option 3: Advanced Manuscript Editing, Drafting & Publication -->
                             <div class="service-option-card" data-package="package" data-price="880">
                                 <div class="option-header">
-                                    <span class="option-title">Advanced Modeling & Manuscript Drafting</span>
+                                    <span class="option-title">Advanced Manuscript Editing, Drafting & Publication</span>
                                     <span class="option-price">$880</span>
                                 </div>
-                                <p class="option-desc">Advanced modeling, full manuscript drafting, and publication support.</p>
+                                <p class="option-desc">Advanced manuscript editing, full drafting, and publication support.</p>
                                 <button type="button" class="select-option-btn">Select</button>
                             </div>
                             
@@ -116,43 +116,12 @@
                 <section class="payment-section glass-card">
                     <h2>2. Payment Information</h2>
                     
-                    <!-- 3D Credit Card Element -->
-                    <div class="card-container" id="credit-card-preview-container">
-                        <div class="credit-card" id="credit-card">
-                            
-                            <!-- Front Surface -->
-                            <div class="card-front">
-                                <div class="card-header">
-                                    <div class="card-chip"></div>
-                                    <!-- Contactless Symbol SVG -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; margin-right: 1.5rem;"><path d="M5 8c0 4.42 3.58 8 8 8M3 5c0 6.63 5.37 12 12 12M7 11c0 2.21 1.79 4 4 4M1 2c0 8.84 7.16 16 16 16"/></svg>
-                                    <div class="card-logo" id="card-brand-logo">VISA</div>
-                                </div>
-                                <div class="card-number" id="card-num-display">•••• •••• •••• ••••</div>
-                                <div class="card-footer">
-                                    <div>
-                                        <div class="card-label">Card Holder</div>
-                                        <div class="card-holder" id="card-holder-display">Cardholder Name</div>
-                                    </div>
-                                    <div style="text-align: right;">
-                                        <div class="card-label">Expires</div>
-                                        <div class="card-expiry" id="card-expiry-display">MM/YY</div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Back Surface -->
-                            <div class="card-back">
-                                <div class="magnetic-stripe"></div>
-                                <div class="signature-area">
-                                    <div class="sig-label">Authorized Signature</div>
-                                    <div class="signature-strip">
-                                        <div class="cvv-display" id="card-cvv-display">***</div>
-                                    </div>
-                                </div>
-                                <p class="card-back-disclaimer">This simulated card representation is used for interactive presentation purposes in the Avan Stat web platform mock checkout.</p>
-                            </div>
-                            
+                    <!-- Secure Direct Checkout Notice -->
+                    <div style="padding: 1.25rem; background: rgba(79, 70, 229, 0.04); border: 1px solid rgba(79, 70, 229, 0.15); border-radius: 16px; margin-bottom: 1.5rem; display: flex; gap: 1rem; align-items: flex-start;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <div>
+                            <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">Secure Payment via Stripe</h4>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4; margin: 0;">Provide your details below and click the button to proceed to Stripe's encrypted payment page to complete your payment.</p>
                         </div>
                     </div>
                     
@@ -168,59 +137,16 @@
                             <input type="email" id="client-email" class="text-input" placeholder="e.g. c.vance@stjude.org" required>
                         </div>
 
-                        <!-- Stripe Method Selector -->
-                        <div class="form-group">
-                            <label>Payment Method (Powered by Stripe)</label>
-                            <div class="checkout-method-selector" style="display: flex; gap: 1rem; margin-top: 8px;">
-                                <div class="method-option active" id="method-embedded-btn" style="flex: 1; display: flex; flex-direction: column; align-items: center; padding: 0.85rem; border: 1.5px solid var(--accent-primary); border-radius: 12px; cursor: pointer; transition: all 0.3s; background: rgba(79, 70, 229, 0.04);">
-                                    <input type="radio" name="checkout-method" id="radio-embedded" value="embedded" checked style="display: none;">
-                                    <span style="font-weight: 700; font-size: 0.9rem; color: var(--text-primary);">Stripe Elements</span>
-                                    <span style="font-size: 0.72rem; color: var(--text-muted); margin-top: 4px; text-align: center;">Seamless checkout on site</span>
-                                </div>
-                                <div class="method-option" id="method-hosted-btn" style="flex: 1; display: flex; flex-direction: column; align-items: center; padding: 0.85rem; border: 1.5px solid var(--card-border); border-radius: 12px; cursor: pointer; transition: all 0.3s; background: transparent;">
-                                    <input type="radio" name="checkout-method" id="radio-hosted" value="hosted" style="display: none;">
-                                    <span style="font-weight: 700; font-size: 0.9rem; color: var(--text-primary);">Stripe Hosted</span>
-                                    <span style="font-size: 0.72rem; color: var(--text-muted); margin-top: 4px; text-align: center;">Secure hosted page</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Embedded Credit Card Inputs (hidden when Hosted Checkout is selected) -->
-                        <div id="embedded-cc-fields">
-                            <div class="form-group">
-                                <label for="card-num-input">Credit Card Number</label>
-                                <input type="text" id="card-num-input" class="text-input" placeholder="4111 2222 3333 4444" maxlength="19" required>
-                            </div>
-                            
-                            <div class="billing-form-grid">
-                                <div class="form-group">
-                                    <label for="card-expiry-input">Expiration Date</label>
-                                    <input type="text" id="card-expiry-input" class="text-input" placeholder="MM/YY" maxlength="5" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="card-cvv-input">CVV Code</label>
-                                    <input type="password" id="card-cvv-input" class="text-input" placeholder="123" maxlength="4" required>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Stripe Hosted Checkout Info (shown when Hosted Checkout is selected) -->
-                        <div id="hosted-checkout-info" style="display: none; padding: 1.25rem; background: rgba(79, 70, 229, 0.03); border: 1px dashed var(--accent-primary); border-radius: 12px; margin-bottom: 1.5rem; text-align: center;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 8px; display: inline-block;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                            <p style="font-size: 0.88rem; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Redirect to Stripe Hosted Portal</p>
-                            <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.4;">When clicking below, you'll be redirected to a secure payment page hosted on stripe.com to finalize your purchase. Supports Google Pay, Apple Pay, and standard credit/debit.</p>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary" style="width: 100%; border-radius: 8px; margin-top: 1rem;" id="submit-payment-btn">
-                            <!-- SVG Lock icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; display: inline-block; vertical-align: middle;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                            <span id="btn-submit-text">Confirm and Securely Pay</span> <span id="btn-price-display" style="margin-left: 5px; font-weight: 800;">$599.00</span>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; border-radius: 12px; margin-top: 1rem; padding: 0.9rem; font-size: 1rem;" id="submit-payment-btn">
+                            <span>Proceed to Stripe Checkout</span>
+                            <span id="btn-price-display" style="margin-left: 5px; font-weight: 800;">$200.00</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 8px; display: inline-block; vertical-align: middle;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                         </button>
 
                         <!-- Stripe Trust Badge -->
-                        <div class="stripe-badge-container" style="display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 12px; font-size: 0.8rem; color: var(--text-muted);">
-                            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block;"><polyline points="20 6 9 17 4 12"/></svg>
-                            <span>100% Encrypted Transactions via <strong>Stripe</strong></span>
+                        <div class="stripe-badge-container" style="display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 16px; font-size: 0.82rem; color: var(--text-muted);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block;"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Official 256-bit Encrypted Checkout Powered by <strong>Stripe</strong></span>
                         </div>
                     </form>
                 </section>
